@@ -1,0 +1,20 @@
+# POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+  {YOUR_PATH}/poky/meta \
+  {YOUR_PATH}/poky/meta-poky \
+  {YOUR_PATH}/poky/meta-yocto-bsp \
+  {YOUR_PATH}/poky/meta-openembedded/meta-oe \
+  {YOUR_PATH}/poky/meta-openembedded/meta-python \
+  {YOUR_PATH}/poky/meta-openembedded/meta-networking \
+  {YOUR_PATH}/poky/meta-openembedded/meta-webserver \
+  {YOUR_PATH}/poky/meta-openembedded/meta-multimedia \
+  {YOUR_PATH}/poky/meta-openembedded/meta-gnome \
+  /home/karolina/YoctoProject/poky/meta-st-openstlinux \
+  "
+BBLAYERS += "{YOUR_PATH}/poky/meta-st-stm32mp"
