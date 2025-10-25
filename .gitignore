@@ -44,3 +44,4 @@ buildhistory/
 *.oeinfo
 *.env
 
+.git
