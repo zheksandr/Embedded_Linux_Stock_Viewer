@@ -15,6 +15,7 @@ BBLAYERS ?= " \
   {YOUR_PATH}/poky/meta-openembedded/meta-webserver \
   {YOUR_PATH}/poky/meta-openembedded/meta-multimedia \
   {YOUR_PATH}/poky/meta-openembedded/meta-gnome \
-  /home/karolina/YoctoProject/poky/meta-st-openstlinux \
+  {YOUR_PATH}/poky/meta-st-openstlinux \
+  {YOUR_PATH}/poky/meta-worklayer \
   "
 BBLAYERS += "{YOUR_PATH}/poky/meta-st-stm32mp"

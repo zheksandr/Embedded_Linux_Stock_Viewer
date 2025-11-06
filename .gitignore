@@ -12,17 +12,11 @@ deploy/
 *.inc
 *.tar.gz
 
-meta-*/*/files/
-meta-*/*/recipes-*/*
-meta-*/*/tests/
-
 *.tar.bz2
 *.tar.xz
 *.tar.lzma
 *.zip
 
-local.conf
-bblayers.conf
 conf/local.conf.sample
 
 bitbake*.log
@@ -30,16 +24,23 @@ log.*
 buildstats/
 buildhistory/
 
-*/.device/
-*/.images/
+*.pyc
+*.pyo
+/*.patch
+*.swp
+*.orig
+*.rej
+*~
+*.example
+ 
+*.vscode*
+*/documentation/
+
  
 *.swp
 *.bak
 *.tmp
 *.orig
-
-*.workspace
-.idea/
 
 *.oeinfo
 *.env

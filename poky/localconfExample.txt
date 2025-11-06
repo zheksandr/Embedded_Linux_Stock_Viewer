@@ -104,6 +104,8 @@ PREFERRED_PROVIDER_virtual/libgles3 = "gcnano-userland-multi-binary-stm32mp"
 # useful to most new users.
 # DISTRO ?= "poky-bleeding"
 
+IMAGE_INSTALL:append = " wifi-scripts"
+
 #
 # Package Management configuration
 #
