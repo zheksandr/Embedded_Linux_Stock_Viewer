@@ -21,3 +21,16 @@ Kluczowym elementem Yocto jest BitBake, narzędzie pełniące rolę systemu budo
 pliki konfiguracyjne: ```local.conf``` i ```bblayers.conf```. Ten reposytorium zawiera nasze pliki konfiguracyjne: ```bblayersconfExample.txt``` oraz ```localconfExample.txt```. Ich zawartość można skopiować do utworzonych plików i mieć skonfigurowany przykładowy projekt.
 
 Aby uruchomić stworzenie obrazu trzeba odpalić komendę ```bitbake st-image-weston```. Mogą pojawić się błędy, ale one są raczej unikalne dla każdego systemu, na którym Linuks się kompiluje.
+
+Po zakończeniu builda, pliki zawierające obraz systemu można znaleźć w lokalizacji ```/tmp-glibc/deploy/images/($MACHINE)```. Jeżeli w katalogu nie znajduje się plik obrazu ```.raw``` np.:```FlashLayout_sdcard_stm32mp157f-dk2-opteemin.raw```, należy go stworzyć za pomocą skryptu z katalogu ```/scripts```. 
+Skrypt tworzy obraz na podstawie FlashLayoutu .tsv z katalogu ```/flashlayout_st-image-weston```. Przykładowo obraz można wygenerować następującą komendą:
+```bash
+sudo DEVICE=sdX 
+./scripts/create_sdcard_from_flashlayout.sh 
+./flashlayout_st-image-weston/opteemin/FlashLayout_sdcard_stm32mp157f-dk2-opteemin.tsv
+```
+, gdzie sdX to nośnik pamięci (należy sprawdzić komendą ```lsblk```). 
+Po zakończeniu działania skrypt sam podpowie komendę do flashowania na nośnik:
+To put this raw image on sdcard:
+```bash
+sudo dd if='./flashlayout_st-image-weston/opteemin/../../FlashLayout_sdcard_stm32mp157f-dk2-opteemin.raw' of=/dev/sdX bs=8M conv=fdatasync status=progress
